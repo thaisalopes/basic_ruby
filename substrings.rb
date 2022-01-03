@@ -1,18 +1,23 @@
 def substrings(string, dictionary)
     string_low_case = string.downcase
-    p compare_and_count(string_low_case, dictionary)
+    compared_array = compare(string_low_case, dictionary)
+    p count(compared_array)
 end
 
-def compare_and_count(string, dictionary)
+def compare(string, dictionary)
     compared_array =[]
     dictionary.each do |word| 
         compared_array.push(string.scan(word))
-        compared_array = compared_array.flatten
     end
+    compared_array
+end
+
+def count (compared_array)
+    compared_array = compared_array.flatten
     compared_array.reduce (Hash.new(0)) do |result, count|
         result[count] +=1
         result
-    end
+    end 
 end
 
 dictionary = ["below","down","go","going","horn","how","howdy","it","i","low","own","part","partner","sit"]
