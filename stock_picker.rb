@@ -22,10 +22,11 @@ def stock_picker(array)
     final_result = []
     biggest_profit = best_profit_per_day(array)
     max_profit = biggest_profit.max_by{|k,v| v}
-    p biggest_profit_key = max_profit[0].split("")
-    p final_result.push(biggest_profit_key[3].to_i, biggest_profit_key[1].to_i)
+    biggest_profit_key = max_profit[0].split("i")
+    new_biggest_profit_key = biggest_profit_key[1].split("_")
+    p final_result.push(new_biggest_profit_key[1].to_i, new_biggest_profit_key[0].to_i)
 end
 
-stock_prices = [1,17,3,6,9,15,8,6,10,25,80]
+stock_prices = [1111,17,3,6,9,15,8,6,11100,25,80,220]
 stock_picker(stock_prices)
 
